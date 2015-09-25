@@ -1,0 +1,60 @@
+#header-main {
+  padding-top: 12px;
+  color: #FFF;
+  font-size: 14px;
+}
+
+#header-left {
+  color: black;
+  font-size: 42px;
+  font-weight: 700;
+  font-family: 'Fugaz One', sans-serif;
+  -webkit-text-stroke-width: 0.5px;
+  -webkit-text-stroke-color: white;
+  text-shadow:
+   3px 3px 0 #FFF,
+   -1px -1px 0 #FFF,
+   1px -1px 0 #FFF,
+   -1px 1px 0 #FFF,
+   1px 1px 0 #FFF;
+}
+
+.form-group {
+  margin-bottom: 6px;
+}
+
+input.form-control, div.input-group-addon {
+  border: 1px solid #A00F00;
+}
+
+div.input-group-addon {
+  background: #FFF;
+  color: #C41200;
+}
+
+ul.list-inline {
+  a, a:hover {
+    color: white;
+    font-size: 13px;
+    line-height: 21px;
+    font-weight: bold;
+    text-decoration: none;
+  }
+}
+#navigation {
+  li:hover {
+    background-color: $dark-red;
+	  border-radius: 8px;
+  }
+}
+
+#header-sign-in-up {
+  ul {
+    text-align: center;
+    margin: 0px;
+
+  }
+  li {
+    padding-bottom: 6px;
+  }
+}

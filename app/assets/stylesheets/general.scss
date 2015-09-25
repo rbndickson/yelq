@@ -1,0 +1,21 @@
+header {
+  background: repeating-linear-gradient(
+    45deg,
+    $main-red,
+    $main-red 10px,
+    darken($main-red, 2%) 10px,
+    darken($main-red, 1%) 20px
+  );
+
+  border-bottom: 1px solid $dark-red;
+  -webkit-box-shadow: 0 0 6px $dark-gray;
+}
+
+.container {
+  padding-left: 100px;
+  padding-right: 100px;
+}
+
+ul {
+  list-style: none;
+}
