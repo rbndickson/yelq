@@ -32,7 +32,7 @@ div.input-group-addon {
   color: #C41200;
 }
 
-ul.list-inline {
+@mixin header-link-text {
   a, a:hover {
     color: white;
     font-size: 13px;
@@ -41,7 +41,10 @@ ul.list-inline {
     text-decoration: none;
   }
 }
+
 #navigation {
+  @include header-link-text;
+
   li:hover {
     background-color: $dark-red;
 	  border-radius: 8px;
@@ -52,9 +55,34 @@ ul.list-inline {
   ul {
     text-align: center;
     margin: 0px;
-
+    @include header-link-text;
   }
+
   li {
     padding-bottom: 6px;
+  }
+
+  .btn-header {
+    font-family: $base-font-family;
+    font-weight: bold;
+    border-radius: 6px;
+    padding: 5px 10px 5px 10px;
+    background: $dark-red;
+  }
+
+  .btn-header:hover {
+    color: white;
+    background: $dark-red;
+    background-image: linear-gradient(to bottom, $dark-red, $darker-red);
+  }
+
+  .btn-header-mini:hover {
+    border-radius: 6px;
+    background: $dark-red;
+  }
+
+  #log-in-container {
+    margin-left: 20px;
+    margin-right: 20px;
   }
 }

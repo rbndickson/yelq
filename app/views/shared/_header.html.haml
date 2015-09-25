@@ -5,7 +5,7 @@
         #header-logo
           yelq*
       .col-md-8#header-center
-        .row.row-mini#seach-bar
+        .row.row-mini#search-bar
           %form
             .form-group.form-group-mini.col-md-6
               .input-group
@@ -29,6 +29,7 @@
         #header-sign-in-up
           %ul
             %li
-              %button.btn.btn-danger.btn-sm(type="submit") Sign Up
-            %li
-              %button.btn.btn-danger.btn-xs(type="submit") Log In
+              %button.btn.btn-header(type="submit") Sign Up
+            %li#log-in-container
+              .btn-header-mini
+                = link_to "Log In"
