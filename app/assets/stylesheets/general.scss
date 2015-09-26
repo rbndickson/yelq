@@ -1,21 +1,38 @@
-header {
-  background: repeating-linear-gradient(
-    45deg,
-    $main-red,
-    $main-red 10px,
-    darken($main-red, 2%) 10px,
-    darken($main-red, 1%) 20px
-  );
-
-  border-bottom: 1px solid $dark-red;
-  -webkit-box-shadow: 0 0 6px $dark-gray;
-}
-
-.container {
-  padding-left: 100px;
-  padding-right: 100px;
+* {
+  margin: 0;
+  padding: 0;
 }
 
 ul {
   list-style: none;
+}
+
+.container {
+  width: 960px !important;
+}
+
+.normalize-top-margin {
+  margin-top: 10px;
+}
+
+.gray-background {
+  background-color: $light-gray;
+}
+
+.gray-underline {
+  border-bottom: 1px solid $medium-gray;
+}
+
+.yelq-title {
+  color: $main-red;
+}
+
+
+
+.pink {
+  background: pink;
+}
+
+.blue {
+  background: blue;
 }

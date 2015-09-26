@@ -1,10 +1,23 @@
-#header-main {
+header {
+  background: repeating-linear-gradient(
+    45deg,
+    $main-red,
+    $main-red 10px,
+    darken($main-red, 2%) 10px,
+    darken($main-red, 1%) 20px
+  );
+
+  border-bottom: 1px solid $dark-red;
+  -webkit-box-shadow: 0 0 6px $dark-gray;
+}
+
+#header-content-container {
   padding-top: 12px;
   color: #FFF;
   font-size: 14px;
 }
 
-#header-left {
+#header-logo {
   color: black;
   font-size: 42px;
   font-weight: 700;
@@ -52,6 +65,8 @@ div.input-group-addon {
 }
 
 #header-sign-in-up {
+  padding-right: 50px;
+  padding-left: 0px;
   ul {
     text-align: center;
     margin: 0px;

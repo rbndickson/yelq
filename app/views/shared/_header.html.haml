@@ -1,35 +1,36 @@
-.container
-  #header-main
-    .row
-      .col-md-2#header-left
-        #header-logo
-          yelq*
-      .col-md-8#header-center
-        .row.row-mini#search-bar
-          %form
-            .form-group.form-group-mini.col-md-6
-              .input-group
-                .input-group-addon Find
-                %input.form-control.input-sm(type="text" placeholder="sushi")
-            .form-group.col-md-6
-              .input-group
-                .input-group-addon Near
-                %input.form-control.input-sm(type="text" placeholder="Tokyo")
-        .row#navigation
-          %ul.list-inline.col-md-12
-            %li
-              = link_to "Home"
-            %li
-              = link_to "About Me"
-            %li
-              = link_to "Write a Review"
-            %li
-              = link_to "Find Friends"
-      .col-md-2#header-right
-        #header-sign-in-up
-          %ul
-            %li
-              %button.btn.btn-header(type="submit") Sign Up
-            %li#log-in-container
-              .btn-header-mini
-                = link_to "Log In"
+%header#header-background
+  .container
+    #header-content-container
+      .row
+        .col-xs-2#header-left-col
+          #header-logo
+            yelq*
+        .col-xs-8#header-center
+          .row.row-mini#search-bar
+            %form
+              .form-group.form-group-mini.col-xs-6
+                .input-group
+                  .input-group-addon Find
+                  %input.form-control.input-sm(type="text" placeholder="sushi")
+              .form-group.col-xs-6
+                .input-group
+                  .input-group-addon Near
+                  %input.form-control.input-sm(type="text" placeholder="Tokyo")
+          .row#navigation
+            %ul.list-inline.col-xs-12
+              %li
+                = link_to "Home"
+              %li
+                = link_to "About Me"
+              %li
+                = link_to "Write a Review"
+              %li
+                = link_to "Find Friends"
+        .col-xs-2#header-right
+          #header-sign-in-up
+            %ul
+              %li
+                %button.btn.btn-header(type="submit") Sign Up
+              %li#log-in-container
+                .btn-header-mini
+                  = link_to "Log In"
