@@ -1,5 +1,5 @@
 %header#header-background
-  .container
+  .container.page-container
     #header-content-container
       .row
         .col-xs-2#header-left-col
@@ -10,12 +10,12 @@
             %form
               .form-group.form-group-mini.col-xs-6
                 .input-group
-                  .input-group-addon Find
-                  %input.form-control.input-sm(type="text" placeholder="sushi")
+                  .input-group-addon.red-border Find
+                  %input.form-control.red-border.input-sm(type="text" placeholder="sushi")
               .form-group.col-xs-6
                 .input-group
-                  .input-group-addon Near
-                  %input.form-control.input-sm(type="text" placeholder="Tokyo")
+                  .input-group-addon.red-border Near
+                  %input.form-control.red-border.input-sm(type="text" placeholder="Tokyo")
           .row#navigation
             %ul.list-inline.col-xs-12
               %li
@@ -30,7 +30,8 @@
           #header-sign-in-up
             %ul
               %li
-                %button.btn.btn-header(type="submit") Sign Up
+                .btn.btn-header
+                  = link_to "Sign Up"
               %li#log-in-container
                 .btn-header-mini
                   = link_to "Log In"

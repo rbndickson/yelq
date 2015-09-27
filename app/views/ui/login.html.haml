@@ -1,0 +1,27 @@
+#full-width-container.gray-background
+  .container.page-container.white-background.gray-side-borders.gray-underline
+    .row.top-spacer
+      .col-xs-6
+        .row
+          .col-xs-10.col-xs-offset-1
+            %h4.yelq-title Log In
+            please enter your email address and password to log in.
+            .form-horizontal.top-spacer
+              %fieldset
+                .form-group
+                  %label.col-xs-4.control-label.yelq-title Email Address
+                  .col-xs-8
+                    %input.form-control(type="email")
+                .form-group
+                  %label.col-xs-4.control-label.yelq-title Password
+                  .col-sm-8
+                    %input.form-control(type="password")
+              %fieldset.form-group.action
+                .col-xs-2.col-xs-offset-9
+                  %input(type="submit" value="Log in" class="btn btn-yelq-gray")
+      .col-xs-6.text-center
+        .row
+          .col-xs-10.col-xs-offset-1
+            %h4.yelq-title No Account Yet?
+            %p That's okay, we still love you.
+            %button.btn.btn-yelq-red Sign Up

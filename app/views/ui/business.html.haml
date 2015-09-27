@@ -1,0 +1,57 @@
+#business-header.gray-background.gray-underline
+  .container.page-container
+    .row.top-spacer
+      .section#business-details
+        .row
+          .col-xs-12
+            %h3 My Fave Coffee Shop
+        .row.top-spacer.bottom-spacer
+          .col-xs-3
+            %h5= "4.3 Stars - #{link_to '12 reviews', '#'}".html_safe
+            $$
+            .ul
+              .li.street-address
+                12 Street Name, Town, Country
+              .li.phone-number
+                01212 888777
+              .li.web-address
+                wwww.cafe.com
+          .col-xs-9#business-photos
+            .row
+              .col-xs-4
+                .business-photo
+                  =image_tag "example_business_photo.png", width: "100%"
+              .col-xs-4
+                .business-photo
+                  =image_tag "example_business_photo.png", width: "100%"
+              .col-xs-4
+                .business-photo
+                  =image_tag "example_business_photo.png", width: "100%"
+#busines-content.white-background.gray-underline
+  .container.page-container
+    .row.top-spacer
+      .col-xs-9
+        .row
+          .col-xs-8
+            %h3.yelq-title
+              Reviews
+          .col-xs-3
+            .dropdown
+              %button.btn.btn-default.dropdown-toggle(type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true")
+                Sort
+              %ul.dropdown-menu
+                %li
+                  %a
+                    Newest first
+                %li
+                  %a
+                    Oldest first
+                %li
+                  %a
+                    Higest Rating
+                %li
+                  %a
+                    Lowest Rating
+      .col-xs-3
+        %h4.yelq-title
+          More Business Info

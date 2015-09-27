@@ -1,14 +1,13 @@
-* {
-  margin: 0;
-  padding: 0;
-}
-
-ul {
-  list-style: none;
-}
-
-.container {
+.page-container {
   width: 960px !important;
+}
+
+.top-spacer {
+  margin-top: 20px;
+}
+
+.bottom-spacer {
+  margin-bottom: 20px;
 }
 
 .normalize-top-margin {
@@ -19,6 +18,15 @@ ul {
   background-color: $light-gray;
 }
 
+.gray-side-borders {
+  border-left: 1px solid $medium-gray;
+  border-right: 1px solid $medium-gray;
+}
+
+.white-background {
+  background-color: white;
+}
+
 .gray-underline {
   border-bottom: 1px solid $medium-gray;
 }
@@ -26,8 +34,6 @@ ul {
 .yelq-title {
   color: $main-red;
 }
-
-
 
 .pink {
   background: pink;
