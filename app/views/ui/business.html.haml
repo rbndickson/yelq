@@ -28,10 +28,10 @@
 #busines-content.white-background.gray-underline
   .container.page-container
     .row.top-spacer
-      .col-xs-6
+      .col-xs-7
         %h3.yelq-title
           Reviews
-      .col-xs-2
+      .col-xs-1
         .dropdown
           %h5.a.dropdown-toggle(type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true")
             Sort
@@ -51,3 +51,23 @@
       .col-xs-4
         %h4.yelq-title
           More Business Info
+    .row.review
+      .review
+        .col-xs-2
+          =image_tag "example_avatar.png", size: "60x60"
+        .col-xs-6
+          #review-title.clearfix
+            .review-title-line.clearfix
+              #review-name-place
+                Alice A. wrote a review for Cappucinos
+              #review-time-ago.small.text-muted
+                4 hours ago
+            .review-title-line.clearfix
+              #review-stars
+                4/5 Stars
+              #review-date.text-muted
+                28/9/2015
+          #review-text.top-spacer
+            %p Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+            %br
+            %p Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.
