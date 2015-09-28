@@ -1,8 +1,8 @@
-* {
-  margin: 0;
-  padding: 0;
-}
-
 ul {
   list-style: none;
+}
+
+ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,body,html,p,blockquote,fieldset,input,dl,dt,dd,figure {
+  margin: 0;
+  padding: 0;
 }
