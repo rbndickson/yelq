@@ -1,0 +1,41 @@
+.full-width-container.gray-background
+  .container.page-container
+    .row.top-spacer
+      .col-xs-10.col-xs-offset-1
+        .row
+          .col-xs-10.col-xs-offset-1
+            .gray-underline
+              %h3.yelq-title
+                Add a Business
+        .row.top-spacer.bottom-spacer
+          .col-xs-8.col-xs-offset-2
+            .form
+              %fieldset
+                .form-group
+                  %label
+                    Country
+                  %select.form-control
+                    %option United States
+                    %option United Kingdom
+                    %option Germany
+                    %option Japan
+                .form-group
+                  %label
+                    Business Name
+                  %input.form-control(type="text" placeholder="Cappuccinos")
+                .form-group
+                  %label
+                    Address
+                  %input.form-control(type="text" placeholder="22 Coffee Street")
+                .form-group
+                  %label
+                    City & Postcode
+                  %input.form-control(type="text" placeholder="London, NW1 2EV")
+                .form-group
+                  %label
+                    Phone Number
+                  %input.form-control(type="tel" placeholder="01234 567890")
+                .form-group
+                  %label
+                    Website Address
+                  %input.form-control(type="text" placeholder="http://companyname.com")
