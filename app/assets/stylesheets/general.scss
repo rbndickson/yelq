@@ -1,5 +1,14 @@
 .page-container {
   width: 960px !important;
+  border-left: 1px solid $medium-gray;
+  border-right: 1px solid $medium-gray;
+  border-bottom: 1px solid $medium-gray;
+  background-color: white;
+
+}
+
+.page-width-container {
+  width: 960px !important;
 }
 
 .top-spacer {

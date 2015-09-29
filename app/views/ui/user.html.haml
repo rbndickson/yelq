@@ -1,23 +1,29 @@
 #upper-half.top-spacer.gray-underline
-  .container.page-container
+  .container.page-width-container
     .row
-      .user-avatar.col-xs-3
+      .user-avatar.col-xs-3.bottom-spacer
         =image_tag "example_avatar.png"
       .user-profile-info.col-xs-9
         %h1 Alice Alicia
         %h4 London, UK
         %h5= link_to "4 Reviews"
 #lower-half.white-background.gray-underline
-  .container.page-container
+  .container.page-width-container
     .row.top-spacer
       .col-xs-3
-        %h4.yelq-title.normalize-top-margin About A A
-        %h5 Location
-        Kunitachi, 東京都, Japan
-        %h5 Yelqing Since
-        September 2015
-        %h5 Things I Love
-        You haven't told us yet ... do tell!
+        .about-user-title
+          %h4.yelq-title.normalize-top-margin About A A
+        .about-user-list.top-spacer
+          .ul
+            .li
+              %h5 Location
+              Kunitachi, 東京都, Japan
+            .li
+              %h5 Yelqing Since
+              September 2015
+            .li
+              %h5 Things I Love
+              You haven't told us yet ... do tell!
       .col-xs-9
         .gray-underline
           %h3.yelq-title.normalize-top-margin
