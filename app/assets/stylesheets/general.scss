@@ -1,53 +1,28 @@
+.page-width-container { width: 960px !important; }
+
 .page-container {
   width: 960px !important;
+  background-color: white;
   border-left: 1px solid $medium-gray;
   border-right: 1px solid $medium-gray;
   border-bottom: 1px solid $medium-gray;
-  background-color: white;
-
 }
 
-.page-width-container {
-  width: 960px !important;
-}
+.top-spacer { margin-top: 20px; }
+.bottom-spacer { margin-bottom: 20px; }
+.normalize-top-margin { margin-top: 10px; }
 
-.top-spacer {
-  margin-top: 20px;
-}
+.small-left-gutter { padding-left:5px; }
+.small-right-gutter { padding-right:5px; }
 
-.bottom-spacer {
-  margin-bottom: 20px;
-}
-
-.normalize-top-margin {
-  margin-top: 10px;
-}
-
-.gray-background {
-  background-color: $light-gray;
-}
+.white-background { background-color: #fff; }
+.gray-background { background-color: $light-gray; }
 
 .gray-side-borders {
   border-left: 1px solid $medium-gray;
   border-right: 1px solid $medium-gray;
 }
+.gray-bottom-border { border-bottom: 1px solid $medium-gray; }
+.red-border { border: 1px solid $dark-red; }
 
-.white-background {
-  background-color: white;
-}
-
-.gray-underline {
-  border-bottom: 1px solid $medium-gray;
-}
-
-.yelq-title {
-  color: $main-red;
-}
-
-.pink {
-  background: pink;
-}
-
-.blue {
-  background: blue;
-}
+.yelq-title { color: $main-red; }

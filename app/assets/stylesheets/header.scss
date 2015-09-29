@@ -1,5 +1,5 @@
 header {
-  background: repeating-linear-gradient(
+  background-image: repeating-linear-gradient(
     45deg,
     $main-red,
     $main-red 10px,
@@ -11,34 +11,30 @@ header {
   -webkit-box-shadow: 0 0 6px $dark-gray;
 }
 
-#header-content-container {
+.header-content-container {
   padding-top: 12px;
-  color: #FFF;
+  color: #fff;
   font-size: 14px;
 }
 
-#header-logo {
+.header-logo {
   color: black;
   font-size: 42px;
   font-weight: 700;
   font-family: 'Fugaz One', sans-serif;
-  -webkit-text-stroke-width: 0.5px;
+  -webkit-text-stroke-width: .5px;
   -webkit-text-stroke-color: white;
   text-shadow:
-   3px 3px 0 #FFF,
-   -1px -1px 0 #FFF,
-   1px -1px 0 #FFF,
-   -1px 1px 0 #FFF,
-   1px 1px 0 #FFF;
-}
-
-.red-border {
-  border: 1px solid #A00F00;
+   3px 3px 0 #fff,
+   -1px -1px 0 #fff,
+   1px -1px 0 #fff,
+   -1px 1px 0 #fff,
+   1px 1px 0 #fff;
 }
 
 .input-group-addon {
-  background: #FFF;
-  color: #C41200;
+  background-color: #fff;
+  color: #c41200;
 }
 
 @mixin header-link-text {
@@ -62,10 +58,10 @@ header {
 
 #header-sign-in-up {
   padding-right: 50px;
-  padding-left: 0px;
+  padding-left: 0;
   ul {
     text-align: center;
-    margin: 0px;
+    margin: 0;
     @include header-link-text;
   }
 
@@ -78,18 +74,18 @@ header {
     font-weight: bold;
     border-radius: 6px;
     padding: 5px 10px 5px 10px;
-    background: $dark-red;
+    background-color: $dark-red;
   }
 
   .btn-header:hover {
     color: white;
-    background: $dark-red;
+    background-color: $dark-red;
     background-image: linear-gradient(to bottom, $dark-red, $darker-red);
   }
 
   .btn-header-mini:hover {
     border-radius: 6px;
-    background: $dark-red;
+    background-color: $dark-red;
   }
 
   #log-in-container {
