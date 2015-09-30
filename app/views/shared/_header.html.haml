@@ -20,19 +20,19 @@
             .row.header-navigation-buttons.header-link-text
               %ul.list-inline.col-xs-12
                 %li
-                  = link_to "Home"
+                  = link_to "Home", '/ui/review_index'
                 %li
-                  = link_to "About Me"
+                  = link_to "About Me", '/ui/user'
                 %li
-                  = link_to "Write a Review"
+                  = link_to "Write a Review", '/ui/review_new'
                 %li
-                  = link_to "Find Friends"
+                  = link_to "Business Index", '/ui/business_index'
           .col-xs-2
             .header-sign-in-up.header-link-text.text-center
               %ul
                 %li
                   .btn.btn-header
-                    = link_to "Sign Up"
+                    = link_to "Sign Up", '/ui/signup'
                 %li.log-in-container.header-top-spacer
                   .btn-header-mini
-                    = link_to "Log In"
+                    = link_to "Log In", '/ui/login'
