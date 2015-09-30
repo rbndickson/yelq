@@ -1,37 +1,38 @@
-%header#header-background
-  .container.page-width-container
-    .header-content-container
-      .row
-        .col-xs-2#header-left-col
-          .header-logo
-            yelq*
-        .col-xs-8#header-center
-          .row.row-mini#search-bar
-            %form
-              .form-group.form-group-mini.col-xs-6
-                .input-group
-                  .input-group-addon.red-border Find
-                  %input.form-control.red-border.input-sm(type="text" placeholder="sushi")
-              .form-group.col-xs-6
-                .input-group
-                  .input-group-addon.red-border Near
-                  %input.form-control.red-border.input-sm(type="text" placeholder="Tokyo")
-          .row#navigation
-            %ul.list-inline.col-xs-12
-              %li
-                = link_to "Home"
-              %li
-                = link_to "About Me"
-              %li
-                = link_to "Write a Review"
-              %li
-                = link_to "Find Friends"
-        .col-xs-2#header-right
-          #header-sign-in-up
-            %ul
-              %li
-                .btn.btn-header
-                  = link_to "Sign Up"
-              %li#log-in-container
-                .btn-header-mini
-                  = link_to "Log In"
+%header
+  .header-background
+    .container.page-width-container
+      .header-content-container
+        .row
+          .col-xs-2
+            .header-logo.text-center
+              yelq*
+          .col-xs-8
+            .row
+              %form
+                .form-group.form-group-mini.col-xs-6
+                  .input-group
+                    .input-group-addon.search-label Find
+                    %input.form-control.red-border.input-sm(type="text" placeholder="sushi")
+                .form-group.form-group-mini.col-xs-6
+                  .input-group
+                    .input-group-addon.search-label Near
+                    %input.form-control.red-border.input-sm(type="text" placeholder="Tokyo")
+            .row.header-navigation-buttons.header-link-text
+              %ul.list-inline.col-xs-12
+                %li
+                  = link_to "Home"
+                %li
+                  = link_to "About Me"
+                %li
+                  = link_to "Write a Review"
+                %li
+                  = link_to "Find Friends"
+          .col-xs-2
+            .header-sign-in-up.header-link-text.text-center
+              %ul
+                %li
+                  .btn.btn-header
+                    = link_to "Sign Up"
+                %li.log-in-container.header-top-spacer
+                  .btn-header-mini
+                    = link_to "Log In"

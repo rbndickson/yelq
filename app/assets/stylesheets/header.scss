@@ -1,4 +1,4 @@
-header {
+.header-background {
   background-image: repeating-linear-gradient(
     45deg,
     $main-red,
@@ -13,6 +13,7 @@ header {
 
 .header-content-container {
   padding-top: 12px;
+  padding-bottom: 6px;
   color: #fff;
   font-size: 14px;
 }
@@ -32,12 +33,17 @@ header {
    1px 1px 0 #fff;
 }
 
-.input-group-addon {
+.search-label {
   background-color: #fff;
+  border: 1px solid $dark-red;
   color: #c41200;
 }
 
-@mixin header-link-text {
+.form-group-mini {
+  margin-bottom: 10px;
+}
+
+.header-link-text {
   a, a:hover {
     color: white;
     font-size: 13px;
@@ -47,49 +53,13 @@ header {
   }
 }
 
-#navigation {
-  @include header-link-text;
-
-  li:hover {
+.header-navigation-buttons ul li:hover {
     background-color: $dark-red;
 	  border-radius: 8px;
   }
-}
 
-#header-sign-in-up {
-  padding-right: 50px;
-  padding-left: 0;
-  ul {
-    text-align: center;
-    margin: 0;
-    @include header-link-text;
-  }
-
-  li {
-    padding-bottom: 6px;
-  }
-
-  .btn-header {
-    font-family: $base-font-family;
-    font-weight: bold;
-    border-radius: 6px;
-    padding: 5px 10px 5px 10px;
-    background-color: $dark-red;
-  }
-
-  .btn-header:hover {
-    color: white;
-    background-color: $dark-red;
-    background-image: linear-gradient(to bottom, $dark-red, $darker-red);
-  }
-
-  .btn-header-mini:hover {
-    border-radius: 6px;
-    background-color: $dark-red;
-  }
-
-  #log-in-container {
-    margin-left: 20px;
-    margin-right: 20px;
-  }
+.log-in-container {
+  padding-top: 6px;
+  width: 50px;
+  margin: auto;
 }

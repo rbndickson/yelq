@@ -3,6 +3,23 @@
   font-weight: bold;
 }
 
+.btn-header {
+  border-radius: 6px;
+  padding: 5px 10px 5px 10px;
+  background-color: $dark-red;
+}
+
+.btn-header:hover {
+  color: white;
+  background-color: $dark-red;
+  background-image: linear-gradient(to bottom, $dark-red, $darker-red);
+}
+
+.btn-header-mini:hover {
+  border-radius: 6px;
+  background-color: $dark-red;
+}
+
 .btn-yelq-red {
   color: #fff;
   background-image: linear-gradient(to bottom, $light-red, $main-red);
