@@ -1,6 +1,9 @@
 #business-header.gray-background.gray-bottom-border
   .container.page-width-container
     .row.top-spacer.bottom-spacer
+      .col-xs-3
+        .business-photo
+          =image_tag "example_business_photo.png", width: "100%"
       .col-xs-6
         .ul
           .li
@@ -13,13 +16,10 @@
             01212 888777
           .li.web-address
             wwww.cafe.com
-      .col-xs-3.col-xs-offset-2
-        .business-photo
-          =image_tag "example_business_photo.png", width: "100%"
 #busines-content.white-background.gray-bottom-border
   .container.page-width-container
     .row.top-spacer
-      .col-xs-8
+      .col-xs-12
         .gray-bottom-border.clearfix
           .business-reviews-title.bottom-spacer
             %h3.yelq-title
@@ -41,26 +41,27 @@
                 %li
                   %a
                     Lowest Rating
-        - 3.times do
-          .review-container.clearfix
-            .user-avatar-col
-              =image_tag "example_avatar.png", size: "128x128"
-            .review-col
-              .review-title.clearfix
-                .review-title-line.clearfix
-                  .review-name-place
-                    Alice A. wrote a review for Cappuccinos
-                  .review-time-ago.small.text-muted
-                    4 hours ago
-                .review-title-line.clearfix
-                  .review-stars
-                    4/5 Stars
-                  .review-date.text-muted
-                    28/9/2015
-              .review-text.top-spacer
-                %p Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-                %br
-                %p Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.
-      .col-xs-4
-        %h4.yelq-title
-          More Business Info
+    - 3.times do
+      .row
+        .review-container.clearfix
+          .col-xs-3.text-center
+            =image_tag "example_avatar.png", size: "128x128"
+          .col-xs-9
+            .review-title.clearfix
+              .review-title-line.clearfix
+                .review-name-place
+                  Alice A. wrote a review for Cappuccinos
+                .review-time-ago.small.text-muted
+                  4 hours ago
+              .review-title-line.clearfix
+                .review-stars
+                  4/5 Stars
+                .review-date.text-muted
+                  28/9/2015
+            .review-text.top-spacer
+              %p Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+              %br
+              %p Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.
+      .row
+        .col-xs-9.col-xs-offset-3
+          .gray-bottom-border
