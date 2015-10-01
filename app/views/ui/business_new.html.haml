@@ -13,14 +13,6 @@
               %fieldset
                 .form-group
                   %label
-                    Country
-                  %select.form-control
-                    %option United States
-                    %option United Kingdom
-                    %option Germany
-                    %option Japan
-                .form-group
-                  %label
                     Business Name
                   %input.form-control(type="text" placeholder="Cappuccinos")
                 .form-group
@@ -29,8 +21,20 @@
                   %input.form-control(type="text" placeholder="22 Coffee Street")
                 .form-group
                   %label
-                    City & Postcode
-                  %input.form-control(type="text" placeholder="London, NW1 2EV")
+                    City
+                  %input.form-control(type="text" placeholder="London")
+                .form-group
+                  %label
+                    Postcode
+                  %input.form-control(type="text" placeholder="NW1 2EV")
+                .form-group
+                  %label
+                    Country
+                  %select.form-control
+                    %option United Kingdom
+                    %option United States
+                    %option Germany
+                    %option Japan
                 .form-group
                   %label
                     Phone Number
@@ -38,13 +42,13 @@
                 .form-group
                   %label
                     Website Address
-                  %input.form-control(type="text" placeholder="http://companyname.com")
+                  %input.form-control(type="text" placeholder="http://www.companyname.com")
                 .form-group
                   %label
                     Category
                   %select.form-control
-                    %option Restaurant
                     %option Cafe
+                    %option Restaurant
                     %option Fashion
                     %option Electronics
                 %button.btn.btn-yelq-red.pull-right Add Business
