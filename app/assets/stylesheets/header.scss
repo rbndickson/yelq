@@ -53,6 +53,14 @@
   }
 }
 
+.user-name-dropdown-button > a {
+  color: white;
+  font-size: 13px;
+  line-height: 21px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
 .header-navigation-buttons ul li:hover {
     background-color: $dark-red;
 	  border-radius: 8px;
