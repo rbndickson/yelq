@@ -1,6 +1,15 @@
 require 'rails_helper'
 
 describe UsersController do
+
+  describe 'GET show' do
+    it 'assigns @user' do
+      user = Fabricate(:user)
+      get :show, id: user.id
+      expect(assigns(:user)).to eq(user)
+    end
+  end
+
   describe "GET new" do
     it "assigns @user" do
       get :new

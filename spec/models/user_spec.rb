@@ -15,4 +15,12 @@ describe User do
     is_at_least(8).
     on(:create)
   end
+
+  describe '#last_name_intital' do
+    it "returns the first letter of the last name" do
+      alice = Fabricate(:user, first_name: "Alice", last_name: "Alicia")
+      expect(alice.last_name_intital).to eq("A")
+    end
+  end
+
 end

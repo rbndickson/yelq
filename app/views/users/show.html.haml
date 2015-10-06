@@ -1,0 +1,19 @@
+.top-spacer.gray-bottom-border
+  .container.page-width-container
+    .row
+      .user-avatar.col-xs-3.bottom-spacer
+        =image_tag "example_avatar.png"
+      .user-profile-info.col-xs-9
+        %h1= "#{@user.first_name} #{@user.last_name_intital}"
+        %h5= link_to "4 Reviews"
+.white-background.gray-bottom-border
+  .container.page-width-container
+    .row.top-spacer
+      .col-xs-3
+        .about-user-title
+          %h4.yelq-title.normalize-top-margin= "About #{@user.first_name} #{@user.last_name_intital}"
+        .about-user-list.top-spacer
+          .ul
+            .li
+              %h5 Yelqing Since
+              = month_and_year(@user.created_at)
