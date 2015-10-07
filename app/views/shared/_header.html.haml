@@ -21,10 +21,16 @@
               %ul.list-inline.col-xs-12
                 %li
                   = link_to "Home", '/ui/front'
-                %li
-                  = link_to "About Me", '/ui/user'
-                %li
-                  = link_to "Write a Review", '/ui/review_new'
+                - if signed_in?
+                  %li
+                    = link_to "About Me", user_path(current_user)
+                  %li
+                    = link_to "Write a Review", '/ui/review_new'
+                - else
+                  %li
+                    = link_to "About Me", login_path
+                  %li
+                    = link_to "Write a Review", login_path
                 %li
                   = link_to "Business Index", businesses_path
           .col-xs-2
@@ -36,7 +42,7 @@
                     %b.caret
                   %ul.dropdown-menu(role="menu" aria-labelledby="dlabel")
                     %li
-                      %a= link_to "About me", "#"
+                      %a= link_to "About me", user_path(current_user)
                       %a= link_to "Account settings", "#"
                       %a= link_to "Log out", logout_path
 
