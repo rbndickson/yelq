@@ -10,15 +10,15 @@
         .row
           .business-entry.clearfix
             .col-xs-2.col-xs-offset-1
-              =image_tag "example_avatar.png", size: "120x120"
+              = image_tag @business.main_picture_url, size: "120x120"
             .col-xs-6
               .business-details-left.clearfix
                 .ul
                   .li
                     .business-name
-                      Cappuccinos
+                      = link_to @business.name, business_path(@business)
                   .li
-                    Cafe
+                    = @business.category.name
                   .li
                     .review-stars
                       4/5 Stars
@@ -28,28 +28,22 @@
               .business-details-right
                 .ul
                   .li
-                    22 Street Name
+                    = @business.address
                   .li
-                    City
+                    = @business.city
                   .li
-                    County
+                    = @business.country
                   .li
-                    01234 567890
-        .row
+                    = @business.phone_number
+        .row.bottom-spacer
           .col-xs-10.col-xs-offset-1
-            .form
-              %fieldset
-                .row
-                  .col-xs-4
-                    %select.form-control
-                      %option 5 Stars
-                      %option 4 Stars
-                      %option 3 Stars
-                      %option 2 Stars
-                      %option 1 Star
-                .row.top-spacer.bottom-spacer
-                  .col-xs-12
-                    %textarea.form-control(rows="5")
-                .row.bottom-spacer
-                  .col-xs-2
-                    %button.btn.btn-yelq-red Post Review
+            = bootstrap_form_for @review do |f|
+              .row
+                .col-xs-4
+                  = f.select :rating, star_options, hide_label: true
+              .row
+                .col-xs-12
+                  =f.text_area :content, :rows => 6, hide_label: true
+              .row
+                .col-xs-2
+                  =f.submit "Post Review", class: "btn btn-yelq-red"

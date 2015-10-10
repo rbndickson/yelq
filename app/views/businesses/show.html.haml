@@ -22,3 +22,5 @@
             = @business.phone_number
           .li
             = link_to @business.web_address, "http://#{@business.web_address}"
+      .col-xs-3
+        = link_to "Write a Review", new_review_path(business_id: @business.id)
