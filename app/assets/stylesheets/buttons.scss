@@ -31,6 +31,12 @@
   text-decoration: none;
 }
 
+.btn-yelq-red:hover {
+  color: #fff;
+  background-image: linear-gradient(to bottom, $main-red, $dark-red);
+  border-color: #ac2925;
+}
+
 .btn-yelq-gray {
   color: #333;
   background-color: $light-gray;
