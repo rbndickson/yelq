@@ -4,8 +4,7 @@
       .col-xs-6.col-xs-offset-3
         .row
           .col-xs-10.col-xs-offset-1
-            %h4.yelq-title.bottom-spacer Sign Up for Yelq
-            %h5.bottom-spacer Connect with great local businesses
+            %h4.yelq-title.bottom-spacer.gray-bottom-border Edit account details
             = bootstrap_form_for @user do |f|
               .col-xs-6.small-right-gutter
                 = f.text_field :first_name, hide_label: true, placeholder: "First Name"
@@ -16,4 +15,4 @@
               .col-xs-12.no-side-padding
                 = f.password_field :password, hide_label: true, placeholder: "password"
               .col-xs-3.col-xs-offset-9.no-side-padding
-                = f.submit value: "Sign Up", class: "btn btn-yelq-gray pull-right"
+                = f.submit value: "update", class: "btn btn-yelq-gray pull-right"

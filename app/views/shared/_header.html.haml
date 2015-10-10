@@ -43,7 +43,7 @@
                   %ul.dropdown-menu(role="menu" aria-labelledby="dlabel")
                     %li
                       %a= link_to "About me", user_path(current_user)
-                      %a= link_to "Account settings", "#"
+                      %a= link_to "Account settings", edit_user_path(current_user)
                       %a= link_to "Log out", logout_path
 
             -else
