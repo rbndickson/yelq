@@ -13,7 +13,6 @@ gem 'jquery-rails'
 gem 'bcrypt', '~> 3.1.7'
 gem 'fabrication'
 gem 'faker'
-gem 'turbolinks'
 
 group :development do
   gem 'thin' # web server
