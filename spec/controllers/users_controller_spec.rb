@@ -52,7 +52,7 @@ describe UsersController do
     it "shows an error message if the user does not match the current user" do
       bob = Fabricate(:user)
       get :edit, id: bob.id
-      expect(flash[:error]).not_to be_blank
+      expect(flash[:danger]).not_to be_blank
     end
   end
 
