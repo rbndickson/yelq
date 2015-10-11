@@ -2,8 +2,7 @@
   .container.page-width-container
     .row.top-spacer.bottom-spacer
       .col-xs-3
-        .business-photo
-          = image_tag @business.main_picture_url, width: "100%"
+        = image_tag @business.main_picture_url, width: "100%"
       .col-xs-6
         .ul
           .li
@@ -23,4 +22,34 @@
           .li
             = link_to @business.web_address, "http://#{@business.web_address}"
       .col-xs-3
-        = link_to "Write a Review", new_business_review_path(@business)
+        %button.btn.btn-yelq-red= link_to "Write a Review", new_business_review_path(@business)
+.white-background.gray-bottom-border
+  .container.page-width-container
+    .row.top-spacer
+      .col-xs-10.col-xs-offset-1
+        .gray-bottom-border.clearfix
+          .business-reviews-title.bottom-spacer
+            %h3.yelq-title
+              Reviews
+    - @reviews.each do |review|
+      .row
+        .review-container.clearfix
+          .col-xs-2.col-xs-offset-1.text-center
+            =image_tag "example_avatar.png", size: "128x128"
+          .col-xs-8
+            .review-title.clearfix
+              .review-title-line.clearfix
+                .review-name-place
+                  = "Review by #{review.creator.first_name} #{review.creator.last_name_intital}"
+                .review-time-ago.small.text-muted
+                  = "#{time_ago_in_words(review.created_at)} ago"
+              .review-title-line.clearfix
+                .review-stars
+                  = "#{review.rating}/5 Stars"
+                .review-date.text-muted
+                  = format_datetime(review.created_at)
+            .review-text.top-spacer
+              = review.content
+      .row
+        .col-xs-8.col-xs-offset-3
+          .gray-bottom-border

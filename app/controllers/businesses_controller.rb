@@ -6,5 +6,6 @@ class BusinessesController < ApplicationController
 
   def show
     @business = Business.find(params[:id])
+    @reviews = @business.reviews.order("id DESC")
   end
 end
