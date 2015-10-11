@@ -37,7 +37,7 @@
                     = @business.phone_number
         .row.bottom-spacer
           .col-xs-10.col-xs-offset-1
-            = bootstrap_form_for @review do |f|
+            = bootstrap_form_for([@business, Review.new]) do |f|
               .row
                 .col-xs-4
                   = f.select :rating, star_options, hide_label: true

@@ -11,7 +11,7 @@
           .li
             %h5= @business.category.name
           .li
-            %h5= "4.3 Stars - #{link_to '12 reviews', '#'}".html_safe
+            %h5= "4.3 Stars - #{@business.reviews.count} reviews".html_safe
           .li
             = @business.address
           .li
@@ -23,4 +23,4 @@
           .li
             = link_to @business.web_address, "http://#{@business.web_address}"
       .col-xs-3
-        = link_to "Write a Review", new_review_path(business_id: @business.id)
+        = link_to "Write a Review", new_business_review_path(@business)
