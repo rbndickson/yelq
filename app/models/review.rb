@@ -1,5 +1,5 @@
 class Review < ActiveRecord::Base
-  belongs_to :user
+  belongs_to :creator, class_name: 'User', foreign_key: 'user_id'
   belongs_to :business
 
   validates_presence_of :rating, :content

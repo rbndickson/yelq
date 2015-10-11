@@ -55,7 +55,7 @@ describe ReviewsController do
         end
 
         it 'creates a review associated with the signed in user' do
-          expect(Review.first.user).to eq(user)
+          expect(Review.first.creator).to eq(user)
         end
 
         it 'displays a success message' do

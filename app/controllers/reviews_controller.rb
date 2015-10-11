@@ -9,7 +9,7 @@ class ReviewsController < ApplicationController
   def create
     @business = Business.find(params[:business_id])
     @review = @business.reviews.build(
-      user: current_user,
+      creator: current_user,
       rating: params[:review][:rating],
       content: params[:review][:content]
     )
