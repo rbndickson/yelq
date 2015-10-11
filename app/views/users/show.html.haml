@@ -5,7 +5,7 @@
         =image_tag "example_avatar.png"
       .user-profile-info.col-xs-9
         %h1= "#{@user.first_name} #{@user.last_name_intital}"
-        %h5= link_to "4 Reviews"
+        %h5= "#{@user.reviews.count} Reviews"
 .white-background.gray-bottom-border
   .container.page-width-container
     .row.top-spacer
@@ -17,3 +17,23 @@
             .li
               %h5 Yelqing Since
               = month_and_year(@user.created_at)
+      .col-xs-9
+        .gray-bottom-border
+          %h3.yelq-title.normalize-top-margin
+            Reviews
+        - @user.reviews.each do |review|
+          .user-review-container.gray-bottom-border
+            .row
+              .col-xs-2
+                =image_tag review.business.main_picture_url, size: "100x100"
+              .col-xs-10
+                .review-title-line.clearfix
+                  .review-name-place
+                    = link_to review.business.name, business_path(review.business)
+                  .review-time-ago.small.text-muted
+                    = "#{time_ago_in_words(review.created_at)} ago"
+                .review-title-line.clearfix
+                  .review-stars
+                    = "#{review.rating}/5 Stars"
+                .review-text.top-spacer
+                  = review.content
