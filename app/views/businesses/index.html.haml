@@ -26,7 +26,8 @@
                       .review-stars
                         4/5 Stars
                       .review-number.text-muted
-                        8 reviews
+                        = "#{business.reviews.count} "
+                        = business.reviews.count == 1 ? "review" : "reviews"
               .col-xs-2
                 .ul
                   .li
