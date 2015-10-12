@@ -58,4 +58,67 @@ describe BusinessesController do
       end
     end
   end
+
+  describe "POST create" do
+    context "with authenicated user" do
+      let(:user) { Fabricate(:user) }
+
+      context "with valid inputs" do
+        let(:cafe) { Category.create!(name: "Cafe") }
+
+        before do
+          set_current_user(user)
+          attributes = Fabricate.attributes_for(:business)
+          attributes[:category_id] = cafe.id
+          post :create, business: attributes
+        end
+
+        it "saves the business to the database" do
+          expect(Business.count).to eq(1)
+        end
+
+        it "redirects to the business page" do
+          expect(response).to redirect_to(business_path(Business.first))
+        end
+
+        it "displays a success message" do
+          expect(flash[:success]).not_to be_blank
+        end
+
+        it "creates a review associated to a category" do
+          expect(Business.first.category).to eq(cafe)
+        end
+      end
+
+      context "with invalid inputs" do
+        before do
+          set_current_user(user)
+          post :create, business: { name: "Only Name" }
+        end
+
+        it "displays an error message" do
+          expect(flash[:danger]).not_to be_blank
+        end
+
+        it "renders the new business page" do
+          expect(flash[:danger]).not_to be_blank
+        end
+      end
+    end
+
+    context "with unauthenicated user" do
+      before { post :create, business: Fabricate.attributes_for(:business) }
+
+      it "does not save the review to the database" do
+        expect(Business.count).to eq(0)
+      end
+
+      it "redirects to the login page" do
+        expect(response).to redirect_to(login_path)
+      end
+      it "displays an error message" do
+        expect(flash[:danger]).not_to be_blank
+      end
+    end
+  end
 end
