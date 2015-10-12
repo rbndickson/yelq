@@ -35,12 +35,13 @@
       .row
         .review-container.clearfix
           .col-xs-2.col-xs-offset-1.text-center
-            =image_tag "example_avatar.png", size: "128x128"
+            =image_tag avatar_url(review.creator), size: "128x128"
           .col-xs-8
             .review-title.clearfix
               .review-title-line.clearfix
                 .review-name-place
-                  = "Review by #{review.creator.first_name} #{review.creator.last_name_intital}"
+                  = "Review by "
+                  = link_to "#{review.creator.first_name} #{review.creator.last_name_intital}", user_path(review.creator)
                 .review-time-ago.small.text-muted
                   = "#{time_ago_in_words(review.created_at)} ago"
               .review-title-line.clearfix
