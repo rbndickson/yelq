@@ -5,7 +5,7 @@ describe ReviewsController do
     let(:user) { Fabricate(:user) }
     let(:business) { Fabricate(:business) }
 
-    context 'with authenicated user' do
+    context 'with authenticated user' do
       before do
         set_current_user(user)
         get :new, business_id: business.id
@@ -17,7 +17,6 @@ describe ReviewsController do
       end
 
       it 'assigns @business' do
-        get :new, business_id: business.id
         expect(assigns(:business)).to eq(business)
       end
     end
@@ -31,7 +30,7 @@ describe ReviewsController do
   end
 
   describe 'POST create' do
-    context 'with authenicated user' do
+    context 'with authenticated user' do
       context 'with valid inputs' do
         let(:business) { Fabricate(:business) }
         let(:user) { Fabricate(:user) }
@@ -39,11 +38,11 @@ describe ReviewsController do
         before do
           set_current_user(user)
           post :create, id: user.id, business_id: business.id,
-          review: { rating: 5, content: "Great!" }
+                        review: { rating: 5, content: "Great!" }
         end
 
         it 'saves the review to the database' do
-          expect(Business.count).to eq(1)
+          expect(Review.count).to eq(1)
         end
 
         it 'redirects to the business page' do
@@ -87,7 +86,7 @@ describe ReviewsController do
       end
     end
 
-    context 'with unauthenicated user' do
+    context 'with unauthenticated user' do
       let(:business) { Fabricate(:business) }
       let(:user) { Fabricate(:user) }
 

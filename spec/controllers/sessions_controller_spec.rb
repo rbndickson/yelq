@@ -3,15 +3,15 @@ require 'rails_helper'
 describe SessionsController do
   describe "GET new" do
 
-    context "with authenticated users" do
+    context "with authenticated user" do
       it "redirects to the home path" do
-        session[:user_id] = Fabricate(:user).id
+        set_current_user
         get :new
         expect(response).to redirect_to(home_path)
       end
     end
 
-    context "with unauthenticated users" do
+    context "with unauthenticated user" do
       it "renders the new user template" do
         get :new
         expect(response).to render_template(:new)
@@ -23,9 +23,7 @@ describe SessionsController do
     let (:alice) { Fabricate(:user) }
 
     context "with valid email and password" do
-      before do
-        post :create, email: alice.email, password: alice.password
-      end
+      before { post :create, email: alice.email, password: alice.password }
 
       it "saves the users id to the session" do
         expect(session[:user_id]).to eq(alice.id)
@@ -53,7 +51,7 @@ describe SessionsController do
         expect(response).to redirect_to(login_path)
       end
 
-      it "sets a flash notice" do
+      it "displays an error message" do
         expect(flash[:danger]).not_to be_blank
       end
     end
@@ -61,7 +59,7 @@ describe SessionsController do
 
   describe "GET destroy" do
     before do
-      session[:id] = Fabricate(:user).id
+      set_current_user
       get :destroy
     end
 
@@ -73,7 +71,7 @@ describe SessionsController do
       expect(response).to redirect_to(root_path)
     end
 
-    it "sets a flash notice" do
+    it "displays a confirmation message" do
       expect(flash[:info]).not_to be_blank
     end
   end

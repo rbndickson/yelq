@@ -24,7 +24,7 @@ describe UsersController do
     end
 
     context "with invalid inputs" do
-      before { post :create, user: { password: "password" } }
+      before { post :create, user: { password: "pa" } }
 
       it "does not create a new user" do
         expect(User.count).to eq(0)
@@ -60,34 +60,35 @@ describe UsersController do
     let(:alice) { Fabricate(:user, first_name: "Alice") }
 
     context "with valid inputs" do
-      before { set_current_user(alice) }
+      before do
+        set_current_user(alice)
+        put :update, id: alice.id, user: Fabricate.attributes_for(:user, first_name: "Newname")
+      end
 
       it "updates the user record" do
-        put :update, id: alice.id, user: Fabricate.attributes_for(:user, first_name: "Newname")
         expect(alice.reload.first_name).to eq("Newname")
       end
 
       it "shows a message confirming the update was successful" do
-        put :update, id: alice.id, user: Fabricate.attributes_for(:user)
         expect(flash[:success]).not_to be_blank
       end
 
       it "redirects to the user profile page" do
-        put :update, id: alice.id, user: Fabricate.attributes_for(:user)
         expect(response).to redirect_to(user_path)
       end
      end
 
     context "with invalid inputs" do
-      it "does not update the user's record" do
+      before do
         set_current_user(alice)
         put :update, id: alice.id, user: Fabricate.attributes_for(:user, first_name: nil)
+      end
+
+      it "does not update the user's record" do
         expect(alice.reload.first_name).to eq("Alice")
       end
 
       it "renders the edit page" do
-        set_current_user(alice)
-        put :update, id: alice.id, user: Fabricate.attributes_for(:user, password: nil)
         expect(response).to render_template(:edit)
       end
     end
