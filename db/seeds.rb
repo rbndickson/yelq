@@ -9,7 +9,7 @@
 cafe = Category.create!(name: 'Cafe')
 restaurant = Category.create!(name: 'Restaurant')
 
-Business.create!(
+bosanska = Business.create!(
   name: 'Cafe Bosanska',
   address: '22 Main Street',
   city: 'London',
@@ -21,7 +21,7 @@ Business.create!(
   main_picture_url: '/tmp/cafe_bosanska.jpg',
 )
 
-Business.create!(
+fruhstuck = Business.create!(
   name: 'Fruhstuck',
   address: '8 Neukolln Avenue',
   city: 'London',
@@ -33,7 +33,7 @@ Business.create!(
   main_picture_url: '/tmp/fruhstuck.jpg',
 )
 
-Business.create!(
+suhs = Business.create!(
   name: "Suh's",
   address: '234 36th Street',
   city: 'Chicago',
@@ -43,4 +43,60 @@ Business.create!(
   web_address: 'www.suhsrestaurant.com',
   category: restaurant,
   main_picture_url: '/tmp/suhs.jpg',
+)
+
+alice = User.create!(
+  first_name: "Alice",
+  last_name: "Alicia",
+  email: "alice.a@example.com",
+  password: "password1",
+)
+
+bryan = User.create!(
+  first_name: "Bryan",
+  last_name: "Bryant",
+  email: "bryan@example.com",
+  password: "password2",
+)
+
+charlie = User.create!(
+  first_name: "Charlie",
+  last_name: "Chudleigh",
+  email: "charlie.c@.com",
+  password: "password3",
+)
+
+Review.create!(
+  business: bosanska,
+  creator: alice,
+  rating: 4,
+  content: "Great coffee and cakes!"
+)
+
+Review.create!(
+  business: bosanska,
+  creator: bryan,
+  rating: 3,
+  content: " Try the Turkish tea it was delicious."
+)
+
+Review.create!(
+  business: fruhstuck,
+  creator: charlie,
+  rating: 5,
+  content: "Lovely big breakfast and great value :)"
+)
+
+Review.create!(
+  business: fruhstuck,
+  creator: alice,
+  rating: 5,
+  content: "Excellent selection including vegetarian options. Recommended!"
+)
+
+Review.create!(
+  business: suhs,
+  creator: bryan,
+  rating: 5,
+  content: "Fantastic food and service!"
 )
