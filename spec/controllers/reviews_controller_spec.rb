@@ -5,7 +5,7 @@ describe ReviewsController do
     let(:user) { Fabricate(:user) }
     let(:business) { Fabricate(:business) }
 
-    context 'with an authorised user' do
+    context 'with authenicated user' do
       before do
         set_current_user(user)
         get :new, business_id: business.id
@@ -22,7 +22,7 @@ describe ReviewsController do
       end
     end
 
-    context 'with an unauthorised user' do
+    context 'with unauthenticated user' do
       it 'redirects to the login path' do
         get :new, business_id: business.id
         expect(response).to redirect_to(login_path)
@@ -31,7 +31,7 @@ describe ReviewsController do
   end
 
   describe 'POST create' do
-    context 'with authenicated users' do
+    context 'with authenicated user' do
       context 'with valid inputs' do
         let(:business) { Fabricate(:business) }
         let(:user) { Fabricate(:user) }
@@ -87,7 +87,7 @@ describe ReviewsController do
       end
     end
 
-    context 'with unauthenicated users' do
+    context 'with unauthenicated user' do
       let(:business) { Fabricate(:business) }
       let(:user) { Fabricate(:user) }
 
