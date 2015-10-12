@@ -11,4 +11,12 @@ class Business < ActiveRecord::Base
       Review.where(business: self).average(:rating).round(1)
     end
   end
+
+  def main_picture
+    if self.main_picture_url.nil?
+      "example_avatar.png"
+    else
+      self.main_picture_url
+    end
+  end
 end

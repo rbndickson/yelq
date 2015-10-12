@@ -22,4 +22,15 @@ describe Business do
       expect(business.average_rating).to eq(4.5)
     end
   end
+
+  describe "#main_picture" do
+    it "returns the main picture url when it is present" do
+      business = Fabricate(:business, main_picture_url: "abc.png")
+      expect(business.main_picture).to eq("abc.png")
+    end
+    it "returns the example_avatar when there is no picture url" do
+      business = Fabricate(:business)
+      expect(business.main_picture).to eq("example_avatar.png")
+    end
+  end
 end
