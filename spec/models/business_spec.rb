@@ -8,4 +8,18 @@ describe Business do
   it { is_expected.to validate_presence_of(:address) }
   it { is_expected.to validate_presence_of(:city) }
   it { is_expected.to validate_presence_of(:country) }
+
+  describe "#average_rating" do
+    it "returns nil when there are no reviews" do
+      business = Fabricate(:business)
+      expect(business.average_rating).to eq(nil)
+    end
+
+    it "returns the average of the ratings when there are reviews" do
+      business = Fabricate(:business)
+      Fabricate(:review, rating: 4, business: business)
+      Fabricate(:review, rating: 5, business: business)
+      expect(business.average_rating).to eq(4.5)
+    end
+  end
 end

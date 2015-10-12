@@ -24,7 +24,7 @@
                       = business.category.name
                     .li
                       .review-stars
-                        4/5 Stars
+                        = "#{business.average_rating} Stars"
                       .review-number.text-muted
                         = "#{business.reviews.count} "
                         = business.reviews.count == 1 ? "review" : "reviews"
