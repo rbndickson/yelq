@@ -18,7 +18,9 @@
   font-size: 14px;
 }
 
-.header-logo {
+.header-logo,
+.header-logo a,
+.header-logo a:hover {
   color: black;
   font-size: 42px;
   font-weight: 700;
@@ -31,6 +33,7 @@
    1px -1px 0 #fff,
    -1px 1px 0 #fff,
    1px 1px 0 #fff;
+   text-decoration: none;
 }
 
 .search-label {

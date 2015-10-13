@@ -5,7 +5,7 @@
         .row
           .col-xs-2
             .header-logo.text-center
-              yelq*
+              =link_to "yelq*", root_path
           .col-xs-8
             .row
               %form
@@ -20,19 +20,14 @@
             .row.header-navigation-buttons.header-link-text
               %ul.list-inline.col-xs-12
                 %li
-                  = link_to "Home", '/ui/front'
+                  = link_to "Home", root_path
                 - if logged_in?
                   %li
                     = link_to "About Me", user_path(current_user)
-                  %li
-                    = link_to "Write a Review", '/ui/review_new'
-                - else
-                  %li
-                    = link_to "About Me", login_path
-                  %li
-                    = link_to "Write a Review", login_path
                 %li
                   = link_to "Business Index", businesses_path
+                %li
+                  = link_to "Add Business", new_business_path
           .col-xs-2
             -if logged_in?
               %ul
