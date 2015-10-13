@@ -10,4 +10,8 @@ class User < ActiveRecord::Base
   def last_name_intital
     last_name[0]
   end
+
+  def display_name
+    first_name + " " + last_name_intital
+  end
 end

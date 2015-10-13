@@ -23,4 +23,10 @@ describe User do
     end
   end
 
+  describe '#display_name' do
+    it "returns the first name and last name initial" do
+      alice = Fabricate(:user, first_name: "Alice", last_name: "Alicia")
+      expect(alice.display_name).to eq("Alice A")
+    end
+  end
 end

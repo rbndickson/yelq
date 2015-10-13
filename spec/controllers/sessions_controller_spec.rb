@@ -7,7 +7,7 @@ describe SessionsController do
       it "redirects to the home path" do
         set_current_user
         get :new
-        expect(response).to redirect_to(home_path)
+        expect(response).to redirect_to(root_path)
       end
     end
 
@@ -30,7 +30,7 @@ describe SessionsController do
       end
 
       it "redirects to the home path" do
-        expect(response).to redirect_to(home_path)
+        expect(response).to redirect_to(root_path)
       end
 
       it "sets the flash notice" do
