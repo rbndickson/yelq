@@ -1,40 +1,37 @@
-.full-width-container.gray-background
-  .container.page-container
+.container.page-container
+  .row
+    .col-xs-8.col-xs-offset-2
+      %h3.yelq-title
+        Recently Added Businesses
+  - @businesses.each do |business|
     .row
-      .col-xs-10.col-xs-offset-1
-        .row
-          .col-xs-10.col-xs-offset-1
-            %h3.yelq-title
-              Recently Added Businesses
-        - @businesses.each do |business|
-          .row
-            .col-xs-10.col-xs-offset-1
-              .gray-bottom-border
-          .row
-            .business-entry.clearfix
-              .col-xs-2.col-xs-offset-1
-                =image_tag business.main_picture, size: "120x120"
-              .col-xs-6
-                .business-details-left.clearfix
-                  .ul
-                    .li
-                      .business-name
-                        = link_to business.name, business
-                    .li
-                      = business.category.name
-                    .li
-                      .review-stars
-                        = "#{business.average_rating} Stars"
-                      .review-number.text-muted
-                        = "#{business.reviews.count} "
-                        = business.reviews.count == 1 ? "review" : "reviews"
-              .col-xs-2
-                .ul
-                  .li
-                    = business.address
-                  .li
-                    = business.city
-                  .li
-                    = business.country
-                  .li
-                    = business.phone_number
+      .col-xs-8.col-xs-offset-2
+        .gray-bottom-border
+    .row
+      .business-entry.clearfix
+        .col-xs-2.col-xs-offset-2
+          =image_tag business.main_picture, size: "120x120"
+        .col-xs-4
+          .business-details-left.clearfix
+            .ul
+              .li
+                .business-name
+                  = link_to business.name, business
+              .li
+                = business.category.name
+              .li
+                .review-stars
+                  = "#{business.average_rating} Stars"
+                .review-number.text-muted
+                  = "#{business.reviews.count} "
+                  = business.reviews.count == 1 ? "review" : "reviews"
+        .col-xs-2
+          .ul
+            .li
+              = business.address
+            .li
+              = business.city
+            .li
+              = business.country
+            .li
+              = business.phone_number

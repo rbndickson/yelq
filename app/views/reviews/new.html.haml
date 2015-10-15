@@ -1,49 +1,46 @@
-.full-width-container.gray-background
-  .container.page-container
-    .row
-      .col-xs-10.col-xs-offset-1
+.container.page-container
+  .row
+    .col-xs-8.col-xs-offset-2
+      .gray-bottom-border
+        %h3.yelq-title
+          Write a Review
+  .row
+    .business-entry.clearfix
+      .col-xs-2.col-xs-offset-2
+        = image_tag @business.main_picture, size: "120x120"
+      .col-xs-4
+        .business-details-left.clearfix
+          .ul
+            .li
+              .business-name
+                = link_to @business.name, business_path(@business)
+            .li
+              = @business.category.name
+            .li
+              .review-stars
+                4/5 Stars
+              .review-number.text-muted
+                8 reviews
+      .col-xs-2
+        .business-details-right
+          .ul
+            .li
+              = @business.address
+            .li
+              = @business.city
+            .li
+              = @business.country
+            .li
+              = @business.phone_number
+  .row.bottom-spacer
+    .col-xs-8.col-xs-offset-2
+      = bootstrap_form_for([@business, Review.new]) do |f|
         .row
-          .col-xs-10.col-xs-offset-1
-            .gray-bottom-border
-              %h3.yelq-title
-                Write a Review
+          .col-xs-3
+            = f.select :rating, star_options, hide_label: true
         .row
-          .business-entry.clearfix
-            .col-xs-2.col-xs-offset-1
-              = image_tag @business.main_picture, size: "120x120"
-            .col-xs-6
-              .business-details-left.clearfix
-                .ul
-                  .li
-                    .business-name
-                      = link_to @business.name, business_path(@business)
-                  .li
-                    = @business.category.name
-                  .li
-                    .review-stars
-                      4/5 Stars
-                    .review-number.text-muted
-                      8 reviews
-            .col-xs-2
-              .business-details-right
-                .ul
-                  .li
-                    = @business.address
-                  .li
-                    = @business.city
-                  .li
-                    = @business.country
-                  .li
-                    = @business.phone_number
-        .row.bottom-spacer
-          .col-xs-10.col-xs-offset-1
-            = bootstrap_form_for([@business, Review.new]) do |f|
-              .row
-                .col-xs-4
-                  = f.select :rating, star_options, hide_label: true
-              .row
-                .col-xs-12
-                  =f.text_area :content, :rows => 6, hide_label: true
-              .row
-                .col-xs-2
-                  =f.submit "Post Review", class: "btn btn-yelq-red"
+          .col-xs-12
+            =f.text_area :content, :rows => 6, hide_label: true
+        .row
+          .col-xs-2
+            =f.submit "Post Review", class: "btn btn-yelq-red"

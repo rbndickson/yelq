@@ -1,26 +1,25 @@
-.full-width-container.gray-background
-  .container.page-container
-    .row.bottom-spacer
-      .col-xs-6.col-xs-offset-3
-        .row
-          .col-xs-10.col-xs-offset-1
-            %h4.yelq-title.bottom-spacer Add a Business
-            = bootstrap_form_for @business do |f|
-              .col-xs-8.small-right-gutter
-                = f.text_field :name
-              .col-xs-4.small-left-gutter
-                = f.collection_select :category_id, Category.order(:name), :id, :name
-              .col-xs-12.no-side-padding
-                = f.text_field :address
-              .col-xs-8.small-right-gutter
-                = f.text_field :city
-              .col-xs-4.small-left-gutter
-                = f.text_field :postcode
-              .col-xs-12.no-side-padding
-                = f.text_field :country
-              .col-xs-12.no-side-padding
-                = f.text_field :phone_number, label: "Phone Number"
-              .col-xs-12.no-side-padding
-                = f.text_field :web_address, label: "Web Address"
-              .col-xs-3.col-xs-offset-9.no-side-padding
-                = f.submit value: "Add Business", class: "btn btn-yelq-gray pull-right"
+.container.page-container
+  .row.bottom-spacer
+    .col-xs-6.col-xs-offset-3
+      .row
+        .col-xs-10.col-xs-offset-1
+          %h4.yelq-title.bottom-spacer Add a Business
+          = bootstrap_form_for @business do |f|
+            .col-xs-8.small-right-gutter
+              = f.text_field :name
+            .col-xs-4.small-left-gutter
+              = f.collection_select :category_id, Category.order(:name), :id, :name
+            .col-xs-12.no-side-padding
+              = f.text_field :address
+            .col-xs-8.small-right-gutter
+              = f.text_field :city
+            .col-xs-4.small-left-gutter
+              = f.text_field :postcode
+            .col-xs-12.no-side-padding
+              = f.text_field :country
+            .col-xs-12.no-side-padding
+              = f.text_field :phone_number, label: "Phone Number"
+            .col-xs-12.no-side-padding
+              = f.text_field :web_address, label: "Web Address"
+            .col-xs-3.col-xs-offset-9.no-side-padding
+              = f.submit value: "Add Business", class: "btn btn-yelq-gray pull-right"
