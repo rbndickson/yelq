@@ -1,7 +1,11 @@
+.full-width-container {
+}
+
 .page-width-container { width: 960px !important; }
 
 .page-container {
   width: 960px !important;
+  padding-top: 20px;
   background-color: white;
   border-left: 1px solid $medium-gray;
   border-right: 1px solid $medium-gray;
