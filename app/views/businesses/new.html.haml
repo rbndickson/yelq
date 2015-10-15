@@ -12,8 +12,10 @@
                 = f.collection_select :category_id, Category.order(:name), :id, :name
               .col-xs-12.no-side-padding
                 = f.text_field :address
-              .col-xs-12.no-side-padding
+              .col-xs-8.small-right-gutter
                 = f.text_field :city
+              .col-xs-4.small-left-gutter
+                = f.text_field :postcode
               .col-xs-12.no-side-padding
                 = f.text_field :country
               .col-xs-12.no-side-padding
