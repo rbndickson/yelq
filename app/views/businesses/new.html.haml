@@ -2,21 +2,25 @@
   .row.bottom-spacer
     .col-xs-6.col-xs-offset-3
       .row
-        .col-xs-10.col-xs-offset-1
+        .col-xs-7.col-xs-offset-1
           %h4.yelq-title.bottom-spacer Add a Business
+        .col-xs-3
+          %small *required field
+      .row
+        .col-xs-10.col-xs-offset-1
           = bootstrap_form_for @business do |f|
             .col-xs-8.small-right-gutter
-              = f.text_field :name
+              = f.text_field :name, label: "Name*"
             .col-xs-4.small-left-gutter
               = f.collection_select :category_id, Category.order(:name), :id, :name
             .col-xs-12.no-side-padding
-              = f.text_field :address
+              = f.text_field :address, label: "Address*"
             .col-xs-8.small-right-gutter
-              = f.text_field :city
+              = f.text_field :city, label: "City*"
             .col-xs-4.small-left-gutter
               = f.text_field :postcode
             .col-xs-12.no-side-padding
-              = f.text_field :country
+              = f.text_field :country, label: "Country*"
             .col-xs-12.no-side-padding
               = f.text_field :phone_number, label: "Phone Number"
             .col-xs-12.no-side-padding
