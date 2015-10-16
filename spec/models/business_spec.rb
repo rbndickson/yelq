@@ -9,6 +9,19 @@ describe Business do
   it { is_expected.to validate_presence_of(:city) }
   it { is_expected.to validate_presence_of(:country) }
 
+  describe "#category_name" do
+    it "returns the category name when business has a category" do
+      cafe = Category.create!(name: "cafe")
+      business = Fabricate(:business, category: cafe)
+      expect(business.category_name).to eq("cafe")
+    end
+
+    it "returns nil when there is no category" do
+      business = Fabricate(:business)
+      expect(business.category_name).to be_nil
+    end
+  end
+
   describe "#average_rating" do
     it "returns nil when there are no reviews" do
       business = Fabricate(:business)

@@ -12,7 +12,7 @@
             .col-xs-8.small-right-gutter
               = f.text_field :name, label: "Name*"
             .col-xs-4.small-left-gutter
-              = f.collection_select :category_id, Category.order(:name), :id, :name
+              = f.collection_select :category_id, Category.order(:name), :id, :name, include_blank: true
             .col-xs-12.no-side-padding
               = f.text_field :address, label: "Address*"
             .col-xs-8.small-right-gutter

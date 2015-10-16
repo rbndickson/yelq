@@ -4,6 +4,10 @@ class Business < ActiveRecord::Base
 
   validates_presence_of :name, :address, :city, :country
 
+  def category_name
+    self.category.name if self.category
+  end
+
   def average_rating
     if self.reviews.count == 0
       nil
