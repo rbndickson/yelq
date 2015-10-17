@@ -2,7 +2,6 @@ require 'rails_helper'
 
 describe SessionsController do
   describe "GET new" do
-
     context "with authenticated user" do
       it "redirects to the home path" do
         set_current_user
@@ -47,7 +46,7 @@ describe SessionsController do
         expect(session[:user_id]).to be_nil
       end
 
-      it "redirects to the sign in path" do
+      it "redirects to the login path" do
         expect(response).to redirect_to(login_path)
       end
 

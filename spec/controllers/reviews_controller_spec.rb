@@ -2,12 +2,11 @@ require 'rails_helper'
 
 describe ReviewsController do
   describe 'GET new' do
-    let(:user) { Fabricate(:user) }
     let(:business) { Fabricate(:business) }
 
     context 'with authenticated user' do
       before do
-        set_current_user(user)
+        set_current_user
         get :new, business_id: business.id
       end
 
@@ -69,7 +68,7 @@ describe ReviewsController do
         before do
           set_current_user(user)
           post :create, id: user.id, business_id: business.id,
-          review: { rating: 5 }
+                        review: { rating: 5 }
         end
 
         it 'displays an error message' do
@@ -92,7 +91,7 @@ describe ReviewsController do
 
       before do
         post :create, id: user.id, business_id: business.id,
-        review: { rating: 5, content: "Great!" }
+                      review: { rating: 5, content: "Great!" }
       end
 
       it 'does not save the review to the database' do

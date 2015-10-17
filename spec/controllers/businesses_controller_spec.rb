@@ -2,18 +2,18 @@ require "rails_helper"
 
 describe BusinessesController do
   describe "GET index" do
-    it "assigns @businesses to all businesses" do
-      business1 = Fabricate(:business)
-      business2 = Fabricate(:business)
+    before do
+      Fabricate(:business, name: 'Oldest')
+      Fabricate(:business, name: 'Newest')
       get :index
-      expect(assigns(:businesses)).to match_array([business1, business2])
+    end
+
+    it "assigns @businesses to all businesses" do
+      expect(assigns(:businesses).count).to eq(2)
     end
 
     it "orders the businesses newest first" do
-      business1 = Fabricate(:business)
-      business2 = Fabricate(:business)
-      get :index
-      expect(assigns(:businesses)).to eq([business2, business1])
+      expect(assigns(:businesses).first.name).to eq('Newest')
     end
   end
 
@@ -26,10 +26,10 @@ describe BusinessesController do
     end
 
     it "assigns @reviews to all reviews" do
-      review1 = Fabricate(:review, business_id: business.id)
-      review2 = Fabricate(:review, business_id: business.id)
+      Fabricate(:review, business_id: business.id)
+      Fabricate(:review, business_id: business.id)
       get :show, id: business.id
-      expect(assigns(:reviews)).to match_array([review1, review2])
+      expect(assigns(:reviews).count).to eq(2)
     end
 
     it "orders the reviews newest first" do
@@ -43,7 +43,6 @@ describe BusinessesController do
   describe "GET new" do
     context "with authenticated user" do
       it "assigns @business" do
-        user = Fabricate(:user)
         set_current_user
         get :new
         expect(assigns(:business)).to be_new_record
@@ -61,13 +60,11 @@ describe BusinessesController do
 
   describe "POST create" do
     context "with authenicated user" do
-      let(:user) { Fabricate(:user) }
-
       context "with valid inputs" do
         let(:cafe) { Category.create!(name: "Cafe") }
 
         before do
-          set_current_user(user)
+          set_current_user
           attributes = Fabricate.attributes_for(:business)
           attributes[:category_id] = cafe.id
           post :create, business: attributes
@@ -92,7 +89,7 @@ describe BusinessesController do
 
       context "with invalid inputs" do
         before do
-          set_current_user(user)
+          set_current_user
           post :create, business: { name: "Only Name" }
         end
 
@@ -101,7 +98,7 @@ describe BusinessesController do
         end
 
         it "renders the new business page" do
-          expect(flash[:danger]).not_to be_blank
+          expect(response).to render_template(:new)
         end
       end
     end
@@ -116,6 +113,7 @@ describe BusinessesController do
       it "redirects to the login page" do
         expect(response).to redirect_to(login_path)
       end
+
       it "displays an error message" do
         expect(flash[:danger]).not_to be_blank
       end
@@ -123,9 +121,9 @@ describe BusinessesController do
   end
 
   describe "GET search" do
-    let (:business) { Fabricate(:business) }
-
     context "with authenticated users" do
+      let (:business) { Fabricate(:business) }
+
       before do
         set_current_user
         get :search, search_terms: { name: business.name, city: business.city }
@@ -133,7 +131,8 @@ describe BusinessesController do
 
       it "assigns @search_term" do
         expect(assigns(:search_terms)).to eq(
-        { 'name' => business.name, 'city' => business.city }) # need => here
+          { 'name' => business.name, 'city' => business.city }
+        ) # need => here
       end
 
       it "assigns @results" do
