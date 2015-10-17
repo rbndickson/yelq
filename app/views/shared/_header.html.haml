@@ -18,7 +18,7 @@
                     .input-group-addon.search-label Near
                     = search_field_tag 'city', nil, placeholder: 'Tokyo', class: 'form-control red-border input-sm'
                 .col-xs-1.no-side-padding
-                  = button_tag(type: "submit", class: "form-control red-border yelq-search-btn") do
+                  = button_tag(type: "submit", class: "form-control red-border yelq-search-btn", id: 'search_button') do
                     %span.glyphicon.glyphicon-search
             .row.header-navigation-buttons.header-link-text
               %ul.list-inline.col-xs-12
