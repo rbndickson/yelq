@@ -1,0 +1,14 @@
+.container.page-container
+  .row
+    .col-xs-8.col-xs-offset-2
+      %h3.yelq-title
+        - if @results.blank?
+          = "Please enter a buiness name or city to search."
+        - elsif @search_terms[:name] == ''
+          = "Search Results for #{@search_terms[:city]}"
+        - elsif @search_terms[:city] == ''
+          = "Search Results for #{@search_terms[:name]}"
+        - else
+          = "Search Results for #{@search_terms[:name]} in #{@search_terms[:city]}"
+  - @results.each do |business|
+    = render partial: "business_info", locals: { business: business }

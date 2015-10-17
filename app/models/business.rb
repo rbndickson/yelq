@@ -4,6 +4,19 @@ class Business < ActiveRecord::Base
 
   validates_presence_of :name, :address, :city, :country
 
+  def self.search_by_name_and_city(search_terms)
+    if search_terms[:name].present? && search_terms[:city].present?
+      where('name ILIKE ? AND city ILIKE ?',
+      "%#{search_terms[:name]}%", "%#{search_terms[:city]}%")
+    elsif search_terms[:name].present?
+      where('name ILIKE ?', "%#{search_terms[:name]}%")
+    elsif search_terms[:city].present?
+      where('city ILIKE ?', "%#{search_terms[:city]}%")
+    else
+      return []
+    end
+  end
+
   def category_name
     self.category.name if self.category
   end

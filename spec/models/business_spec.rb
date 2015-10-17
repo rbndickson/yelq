@@ -9,6 +9,106 @@ describe Business do
   it { is_expected.to validate_presence_of(:city) }
   it { is_expected.to validate_presence_of(:country) }
 
+  describe "search_by_name_and_city" do
+    context "with only name entered" do
+      it "returns an empty array if there are no matches" do
+        Fabricate(:business, name: "ABC Mart")
+        Fabricate(:business, name: "DEF Mart")
+        expect(Business.search_by_name_and_city({name: "XYZ Mart", city: ""})).to eq([])
+      end
+
+      it "returns an array of one video for an exact match" do
+        abcmart = Fabricate(:business, name: "ABC Mart")
+        Fabricate(:business, name: "DEF Mart")
+        expect(Business.search_by_name_and_city({name: "ABC Mart", city: ""})).to eq([abcmart])
+      end
+
+      it "returns an array of one video for a partial match" do
+        abcmart = Fabricate(:business, name: "ABC Mart")
+        Fabricate(:business, name: "DEF Mart")
+        expect(Business.search_by_name_and_city({name: "ABC", city: ""})).to eq([abcmart])
+      end
+
+      it "returns an array of all matches for multiple matches" do
+        abcmart = Fabricate(:business, name: "ABC Mart")
+        defmart = Fabricate(:business, name: "DEF Mart")
+        Fabricate(:review, business: defmart)
+        Fabricate(:review)
+        expect(Business.search_by_name_and_city({name: "Mart", city: ""})).to match_array([defmart, abcmart])
+      end
+    end
+
+    context "with only city entered" do
+      it "returns an empty array if there are no matches" do
+        Fabricate(:business, name: "ABC Mart", city: "Berlin")
+        defmart = Fabricate(:business, name: "DEF Mart", city: "Paris")
+        expect(Business.search_by_name_and_city({name: "", city: "London"})).to eq([])
+      end
+
+      it "returns an array of one video for an exact match" do
+        Fabricate(:business, name: "ABC Mart", city: "Berlin")
+        defmart = Fabricate(:business, name: "DEF Mart", city: "Paris")
+        expect(Business.search_by_name_and_city({name: "", city: "Paris"})).to eq([defmart])
+      end
+
+      it "returns an array of one video for a partial match" do
+        Fabricate(:business, name: "ABC Mart", city: "Berlin")
+        defmart = Fabricate(:business, name: "DEF Mart", city: "Paris")
+        expect(Business.search_by_name_and_city({name: "", city: "Par"})).to eq([defmart])
+      end
+
+      it "returns an array of all matches for multiple matches" do
+        abcmart = Fabricate(:business, name: "ABC Mart", city: "Berlin")
+        defmart = Fabricate(:business, name: "DEF Mart", city: "Paris")
+        expect(Business.search_by_name_and_city({name: "", city: "r"})).to eq([abcmart, defmart])
+      end
+    end
+
+    context "with name and city entered" do
+      it "returns an empty array if there are no matches" do
+        Fabricate(:business, name: "ABC Mart", city: "Berlin")
+        Fabricate(:business, name: "DEF Mart", city: "Paris")
+        expect(Business.search_by_name_and_city({name: "XYZ Shop", city: "Tokyo"})).to eq([])
+      end
+
+      it "returns an empty array if there is a match of only name" do
+        Fabricate(:business, name: "ABC Mart", city: "Berlin")
+        Fabricate(:business, name: "DEF Mart", city: "Paris")
+        expect(Business.search_by_name_and_city({name: "ABC Mart", city: "Tokyo"})).to eq([])
+      end
+
+      it "returns an empty array if there is a match of only city" do
+        Fabricate(:business, name: "ABC Mart", city: "Berlin")
+        Fabricate(:business, name: "DEF Mart", city: "Paris")
+        expect(Business.search_by_name_and_city({name: "XYZ Shop", city: "Berlin"})).to eq([])
+      end
+
+      it "returns an array of one video for an exact match" do
+        abcmart = Fabricate(:business, name: "ABC Mart", city: "Berlin")
+        Fabricate(:business, name: "DEF Mart", city: "Paris")
+        expect(Business.search_by_name_and_city({name: "ABC Mart", city: "Berlin"})).to eq([abcmart])
+      end
+      it "returns an array of one video for a partial match" do
+        abcmart = Fabricate(:business, name: "ABC Mart", city: "Berlin")
+        Fabricate(:business, name: "DEF Mart", city: "Paris")
+        expect(Business.search_by_name_and_city({name: "ABC", city: "Berlin"})).to eq([abcmart])
+      end
+      it "returns an array of all matches for multiple matches" do
+        abcmart = Fabricate(:business, name: "ABC Mart", city: "Berlin")
+        defmart = Fabricate(:business, name: "DEF Mart", city: "Paris")
+        expect(Business.search_by_name_and_city({name: "Mart", city: "r"})).to eq([abcmart, defmart])
+      end
+    end
+
+    context "with both fields empty" do
+      it "returns an empty array when searching for a blank string" do
+        Fabricate(:business, name: "ABC Mart", city: "Berlin")
+        Fabricate(:business, name: "DEF Mart", city: "Paris")
+        expect(Business.search_by_name_and_city({name: "", city: ""})).to eq([])
+      end
+    end
+  end
+
   describe "#category_name" do
     it "returns the category name when business has a category" do
       cafe = Category.create!(name: "cafe")

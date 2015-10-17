@@ -25,6 +25,11 @@ class BusinessesController < ApplicationController
     @reviews = @business.reviews.order("id DESC")
   end
 
+  def search
+    @search_terms = params[:search_terms]
+    @results = Business.search_by_name_and_city(@search_terms)
+  end
+
   def business_params
     params.require(:business).permit(:name, :category_id, :address, :city, :postcode, :country, :phone_number, :web_address)
   end

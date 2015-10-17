@@ -8,15 +8,18 @@
               =link_to "yelq*", root_path
           .col-xs-8
             .row
-              %form
-                .form-group.form-group-mini.col-xs-6
+              = form_tag(search_businesses_path, method: 'get') do
+                .col-xs-5.form-group.form-group-mini
                   .input-group
                     .input-group-addon.search-label Find
-                    %input.form-control.red-border.input-sm(type="text" placeholder="sushi")
-                .form-group.form-group-mini.col-xs-6
+                    = search_field_tag 'name', nil, type: 'submit', placeholder: 'sushi', class: 'form-control red-border input-sm'
+                .col-xs-5.form-group.form-group-mini
                   .input-group
                     .input-group-addon.search-label Near
-                    %input.form-control.red-border.input-sm(type="text" placeholder="Tokyo")
+                    = search_field_tag 'city', nil, placeholder: 'Tokyo', class: 'form-control red-border input-sm'
+                .col-xs-1.no-side-padding
+                  = button_tag(type: "submit", class: "form-control red-border yelq-search-btn") do
+                    %span.glyphicon.glyphicon-search
             .row.header-navigation-buttons.header-link-text
               %ul.list-inline.col-xs-12
                 %li
@@ -40,7 +43,6 @@
                       %a= link_to "About me", user_path(current_user)
                       %a= link_to "Account settings", edit_user_path(current_user)
                       %a= link_to "Log out", logout_path
-
             -else
               .header-sign-in-up.header-link-text.text-center
                 %ul

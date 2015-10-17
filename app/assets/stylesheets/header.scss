@@ -46,6 +46,20 @@
   margin-bottom: 10px;
 }
 
+.yelq-search-btn {
+  padding: 0;
+  margin: 0;
+  height: 30px;
+  width: 100%;
+  text-align: center;
+  background-color: $dark-red;
+  color: #fff;
+}
+
+.yelq-search-btn:hover {
+  background-image: linear-gradient(to bottom, $dark-red, $darker-red);
+}
+
 .header-link-text {
   a, a:hover {
     color: white;

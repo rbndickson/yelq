@@ -10,6 +10,11 @@ Rails.application.routes.draw do
 
   resources :businesses, only: [:index, :new, :create, :show] do
     resources :reviews, only: [:index, :new, :create]
+
+    collection do
+      get 'search'
+    end
   end
+
   resources :users, only: [:create, :show, :edit, :update]
 end
