@@ -126,13 +126,12 @@ describe BusinessesController do
 
       before do
         set_current_user
-        get :search, search_terms: { name: business.name, city: business.city }
+        get :search, name: business.name, city: business.city
       end
 
       it "assigns @search_term" do
         expect(assigns(:search_terms)).to eq(
-          { 'name' => business.name, 'city' => business.city }
-        ) # need => here
+          { name: business.name, city: business.city })
       end
 
       it "assigns @results" do
