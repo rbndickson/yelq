@@ -17,12 +17,14 @@
               .review-title.clearfix
                 .review-heading.clearfix
                   .review-name-place
-                    = link_to "#{review.creator.display_name}", review.creator
-                    = " - "
-                    = link_to "#{review.business.name}", review.business
-                  .review-time-ago.small.text-muted
+                    .ul
+                      .li
+                        = link_to "#{review.creator.display_name}", review.creator
+                      .li
+                        = link_to " #{review.business.name}", review.business
+                  .small.text-muted.review-time-ago
                     = "#{time_ago_in_words(review.created_at)} ago"
-                .review-sub-heading.clearfix
+                .review-sub-headin.clearfix
                   .review-stars
                     = "#{review.rating}/5 Stars"
               .review-text.top-spacer
