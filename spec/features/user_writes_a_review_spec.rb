@@ -4,6 +4,7 @@ feature "User adds review to business" do
   scenario "with authenticated user and valid inputs" do
     business = Fabricate(:business)
     login
+    click_link 'Business Index'
     click_link business.name
     click_link 'Write a Review'
     select('3 stars', from: 'Rating')
@@ -15,6 +16,7 @@ feature "User adds review to business" do
   scenario "with authenticated user but invalid inputs" do
     business = Fabricate(:business)
     login
+    click_link 'Business Index'
     click_link business.name
     click_link 'Write a Review'
     select('3 stars', from: 'Rating')
@@ -25,6 +27,7 @@ feature "User adds review to business" do
   scenario "with unuathenticated user" do
     business = Fabricate(:business)
     visit root_path
+    click_link 'Business Index'
     click_link business.name
     click_link 'Write a Review'
     expect(page).to have_content('Sorry you must be logged in to do that')
