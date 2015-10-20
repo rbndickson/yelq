@@ -45,8 +45,7 @@ describe BusinessesController do
       it "assigns @business" do
         set_current_user
         get :new
-        expect(assigns(:business)).to be_new_record
-        expect(assigns(:business)).to be_instance_of(Business)
+        expect(assigns(:business)).to be_a_new(Business)
       end
     end
 
@@ -65,8 +64,7 @@ describe BusinessesController do
 
         before do
           set_current_user
-          attributes = Fabricate.attributes_for(:business)
-          attributes[:category_id] = cafe.id
+          attributes = Fabricate.attributes_for(:business, category: cafe)
           post :create, business: attributes
         end
 
@@ -79,7 +77,7 @@ describe BusinessesController do
         end
 
         it "displays a success message" do
-          expect(flash[:success]).not_to be_blank
+          expect(flash[:success]).to be_present
         end
 
         it "creates a review associated to a category" do
@@ -94,7 +92,7 @@ describe BusinessesController do
         end
 
         it "displays an error message" do
-          expect(flash[:danger]).not_to be_blank
+          expect(flash[:danger]).to be_present
         end
 
         it "renders the new business page" do
@@ -115,7 +113,7 @@ describe BusinessesController do
       end
 
       it "displays an error message" do
-        expect(flash[:danger]).not_to be_blank
+        expect(flash[:danger]).to be_present
       end
     end
   end

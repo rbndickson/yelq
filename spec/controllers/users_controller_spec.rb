@@ -5,8 +5,7 @@ describe UsersController do
   describe "GET new" do
     it "assigns @user" do
       get :new
-      expect(assigns(:user)).to be_new_record
-      expect(assigns(:user)).to be_instance_of(User)
+      expect(assigns(:user)).to be_a_new(User)
     end
   end
 
@@ -52,7 +51,7 @@ describe UsersController do
     it "shows an error message if the user does not match the current user" do
       bob = Fabricate(:user)
       get :edit, id: bob.id
-      expect(flash[:danger]).not_to be_blank
+      expect(flash[:danger]).to be_present
     end
   end
 
@@ -70,7 +69,7 @@ describe UsersController do
       end
 
       it "shows a message confirming the update was successful" do
-        expect(flash[:success]).not_to be_blank
+        expect(flash[:success]).to be_present
       end
 
       it "redirects to the user profile page" do

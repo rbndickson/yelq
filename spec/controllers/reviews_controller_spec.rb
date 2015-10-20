@@ -11,8 +11,7 @@ describe ReviewsController do
       end
 
       it 'assigns @review' do
-        expect(assigns(:review)).to be_new_record
-        expect(assigns(:review)).to be_instance_of(Review)
+        expect(assigns(:review)).to be_a_new(Review)
       end
 
       it 'assigns @business' do
@@ -57,7 +56,7 @@ describe ReviewsController do
         end
 
         it 'displays a success message' do
-          expect(flash[:success]).not_to be_blank
+          expect(flash[:success]).to be_present
         end
       end
 
@@ -72,7 +71,7 @@ describe ReviewsController do
         end
 
         it 'displays an error message' do
-          expect(flash[:danger]).not_to be_blank
+          expect(flash[:danger]).to be_present
         end
 
         it 'renders the new review page' do
@@ -103,7 +102,7 @@ describe ReviewsController do
       end
 
       it 'displays an error message' do
-        expect(flash[:danger]).not_to be_blank
+        expect(flash[:danger]).to be_present
       end
     end
   end
