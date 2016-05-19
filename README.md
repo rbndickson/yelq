@@ -1,15 +1,24 @@
-## README
+# Yelq - A Yelp clone
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Built to practice Rails and TDD as a part of Tealeaf Academy (now [Launch School](https://launchschool.com/))
 
-Things you may want to cover:
-- Ruby version
-- System dependencies
-- Configuration
-- Database creation
-- Database initialization
-- How to run the test suite
-- Services (job queues, cache servers, search engines, etc.)
-- Deployment instructions
-- ...
+App can be viewed at http://yelq.herokuapp.com/
+
+### Features:
+
+- User registration and authentication
+- Users can view a list of businesses
+- Users can search for a business by name, location or both
+- Users can view a business information page with reviews
+- Users can add a business
+- Users can write reviews for businesses
+- User profile page that shows the user's reviews
+
+### Technologies used:
+
+- Rails
+- RSpec
+- Bootstrap
+- HAML
+- PostgreSQL
+- Heroku
