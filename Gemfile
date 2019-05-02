@@ -3,7 +3,7 @@ ruby '2.2.3'
 
 gem 'rails', '4.2.11'
 gem 'pg'
-gem 'sass-rails', '~> 5.0'
+gem 'sass-rails', '~> 5.0.6'
 gem 'bootstrap-sass'
 gem 'bootstrap_form'
 gem 'haml-rails'
